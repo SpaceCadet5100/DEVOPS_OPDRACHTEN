@@ -4,9 +4,15 @@ on:
         branches:
             - master
             - main
+    push:
+      paths:
+         - p1/**
 jobs:
     coverage:
         runs-on: ubuntu-latest
+        defaults:
+          run:
+            working-directory: ./p1/
         steps:
             - uses: actions/checkout@v3
             - uses: ArtiomTr/jest-coverage-report-action@v2
